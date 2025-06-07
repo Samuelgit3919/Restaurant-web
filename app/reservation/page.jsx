@@ -157,7 +157,7 @@ export default function ReservationPage() {
   const today = new Date().toISOString().split("T")[0]
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white ">
       <Navbar />
       <div className="bg-amber-800 text-white py-16 animate-fade-in">
         <div className="container mx-auto px-4 text-center">

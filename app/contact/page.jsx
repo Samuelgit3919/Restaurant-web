@@ -59,7 +59,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <div className="bg-amber-800 text-white py-16">
+      <div className="bg-amber-800 md:mx-12 lg:mx-24 xl:mx-40 my-16 text-white py-16">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">Contact Us</h1>
           <p className="text-xl max-w-2xl mx-auto">
@@ -68,7 +68,7 @@ export default function ContactPage() {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-16">
+      <div className="container md:mx-12 px-4 py-16">
         <div className="grid md:grid-cols-2 gap-12">
           <div>
             <h2 className="text-3xl font-bold mb-8 text-amber-800">Get in Touch</h2>
@@ -156,9 +156,8 @@ export default function ContactPage() {
 
               {formStatus.message && (
                 <div
-                  className={`p-4 rounded-md ${
-                    formStatus.type === "success" ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
-                  }`}
+                  className={`p-4 rounded-md ${formStatus.type === "success" ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
+                    }`}
                 >
                   {formStatus.message}
                 </div>

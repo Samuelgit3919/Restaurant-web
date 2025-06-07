@@ -2,7 +2,7 @@ import Image from "next/image"
 
 export default function MenuSection({ section }) {
   return (
-    <section id={section.id} className="scroll-mt-20">
+    <section id={section.id} className="scroll-mt-20  md:mx-12 lg:mx-24 xl:mx-40 my-16">
       <h3 className="text-3xl font-bold mb-8 text-amber-800 animate-fade-in-up">{section.title}</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {section.items.map((item, index) => (
