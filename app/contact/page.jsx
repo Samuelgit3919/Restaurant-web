@@ -211,12 +211,19 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="bg-gray-200 rounded-lg h-80">
-              {/* Map placeholder - would be replaced with an actual map component */}
-              <div className="w-full h-full flex items-center justify-center text-gray-500">
-                Interactive Map Would Go Here
-              </div>
+            <div className="bg-gray-200 rounded-lg h-80 overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d172152.9619070271!2d-122.50494806961721!3d47.60882796629672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5490102c93e83355%3A0x102565466944d59a!2sSeattle%2C%20WA%2C%20USA!5e0!3m2!1sen!2set!4v1749285748457!5m2!1sen!2set"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full"
+              />
             </div>
+
           </div>
         </div>
       </div>
