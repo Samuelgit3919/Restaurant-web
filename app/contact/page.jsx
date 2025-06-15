@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Navbar from "@/components/navbar"
+import Footer from "@/components/footer"
 import { MapPin, Phone, Mail, Clock } from "lucide-react"
 
 export default function ContactPage() {
@@ -57,23 +58,23 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white flex flex-col">
       <Navbar />
-      <div className="bg-amber-800 md:mx-12 lg:mx-24 xl:mx-40 my-16 text-white py-16">
+      <header className="bg-amber-800 w-full mt-0 mb-16 text-white py-16 px-4 shadow-lg">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">Contact Us</h1>
-          <p className="text-xl max-w-2xl mx-auto">
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-4 tracking-tight drop-shadow-lg">Contact Us</h1>
+          <p className="text-xl max-w-2xl mx-auto opacity-90">
             We'd love to hear from you. Reach out with any questions or to make a reservation.
           </p>
         </div>
-      </div>
+      </header>
 
-      <div className="container md:mx-12 px-4 py-16">
-        <div className="grid md:grid-cols-2 gap-12">
-          <div>
+      <main className="flex-1 w-full px-0 py-16">
+        <div className="grid md:grid-cols-2 gap-16 w-full max-w-6xl mx-auto px-4">
+          {/* Contact Form */}
+          <section>
             <h2 className="text-3xl font-bold mb-8 text-amber-800">Get in Touch</h2>
-
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6 bg-white p-8 rounded-lg shadow-md">
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block mb-2 font-medium">
@@ -87,6 +88,7 @@ export default function ContactPage() {
                     onChange={handleChange}
                     className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
                     required
+                    autoComplete="name"
                   />
                 </div>
                 <div>
@@ -101,6 +103,7 @@ export default function ContactPage() {
                     onChange={handleChange}
                     className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
                     required
+                    autoComplete="email"
                   />
                 </div>
               </div>
@@ -117,6 +120,7 @@ export default function ContactPage() {
                     value={formData.phone}
                     onChange={handleChange}
                     className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+                    autoComplete="tel"
                   />
                 </div>
                 <div>
@@ -156,7 +160,9 @@ export default function ContactPage() {
 
               {formStatus.message && (
                 <div
-                  className={`p-4 rounded-md ${formStatus.type === "success" ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
+                  className={`p-4 rounded-md text-center transition-all duration-300 ${formStatus.type === "success"
+                    ? "bg-green-100 text-green-800 border border-green-300"
+                    : "bg-red-100 text-red-800 border border-red-300"
                     }`}
                 >
                   {formStatus.message}
@@ -165,103 +171,66 @@ export default function ContactPage() {
 
               <button
                 type="submit"
-                className="bg-amber-800 hover:bg-amber-900 text-white px-8 py-3 rounded-md font-medium transition-colors"
+                className="bg-amber-800 hover:bg-amber-900 text-white px-8 py-3 rounded-md font-semibold transition-colors shadow-md w-full"
               >
                 Send Message
               </button>
             </form>
-          </div>
+          </section>
 
-          <div>
+          {/* Contact Information */}
+          <aside>
             <h2 className="text-3xl font-bold mb-8 text-amber-800">Information</h2>
-
-            <div className="bg-amber-50 p-6 rounded-lg mb-8">
-              <div className="flex items-start mb-6">
-                <MapPin className="text-amber-800 mr-4 mt-1 flex-shrink-0" />
+            <div className="bg-amber-50 p-6 rounded-lg mb-8 shadow-sm space-y-6">
+              <div className="flex items-start gap-4">
+                <MapPin className="text-amber-800 mt-1 flex-shrink-0" size={28} />
                 <div>
                   <h3 className="font-bold text-lg mb-1">Address</h3>
-                  <p>123 Ethiopian Way</p>
-                  <p>Addis Ababa, ET 12345</p>
+                  <address className="not-italic">
+                    2200 S Jackson St.<br />
+                    Seattle
+                  </address>
                 </div>
               </div>
-
-              <div className="flex items-start mb-6">
-                <Phone className="text-amber-800 mr-4 mt-1 flex-shrink-0" />
+              <div className="flex items-start gap-4">
+                <Phone className="text-amber-800 mt-1 flex-shrink-0" size={28} />
                 <div>
                   <h3 className="font-bold text-lg mb-1">Phone</h3>
-                  <p>(123) 456-7890</p>
+                  <a href="tel:206-475-5034" className="hover:underline">206-475-5034</a>
                 </div>
               </div>
-
-              <div className="flex items-start mb-6">
-                <Mail className="text-amber-800 mr-4 mt-1 flex-shrink-0" />
+              <div className="flex items-start gap-4">
+                <Mail className="text-amber-800 mt-1 flex-shrink-0" size={28} />
                 <div>
                   <h3 className="font-bold text-lg mb-1">Email</h3>
-                  <p>info@boleethiopian.com</p>
+                  <a href="mailto:Gojjoinfo@gmail.com" className="hover:underline">Gojjoinfo@gmail.com</a>
                 </div>
               </div>
-
-              <div className="flex items-start">
-                <Clock className="text-amber-800 mr-4 mt-1 flex-shrink-0" />
+              <div className="flex items-start gap-4">
+                <Clock className="text-amber-800 mt-1 flex-shrink-0" size={28} />
                 <div>
                   <h3 className="font-bold text-lg mb-1">Hours</h3>
-                  <p>Monday - Friday: 11am - 10pm</p>
-                  <p>Saturday - Sunday: 10am - 11pm</p>
+                  <p>Monday - Friday: 11am - 9pm</p>
+                  <p>Saturday - Sunday: 10am - 10pm</p>
                 </div>
               </div>
             </div>
-
-            <div className="bg-gray-200 rounded-lg h-80 overflow-hidden">
+            <div className="bg-gray-200 rounded-lg h-80 overflow-hidden shadow-md">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d172152.9619070271!2d-122.50494806961721!3d47.60882796629672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5490102c93e83355%3A0x102565466944d59a!2sSeattle%2C%20WA%2C%20USA!5e0!3m2!1sen!2set!4v1749285748457!5m2!1sen!2set"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2690.2778421695525!2d-122.30889534596602!3d47.60128691429514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54906ac20c110207%3A0xd3c524016fd720cf!2s2200%20S%20Jackson%20St%2C%20Seattle%2C%20WA%2098144%2C%20USA!5e0!3m2!1sen!2set!4v1749983268467!5m2!1sen!2set"
                 width="100%"
                 height="100%"
-                style={{ border: 0 }}
-                allowFullScreen=""
+                style={{ border: 0, minHeight: "320px" }}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="w-full h-full"
-              />
+                title="Google Map"
+                allowFullScreen
+              ></iframe>
             </div>
-
-          </div>
+          </aside>
         </div>
-      </div>
-
-      <footer className="bg-amber-800 text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4">Hours</h3>
-              <p>Monday - Friday: 11am - 10pm</p>
-              <p>Saturday - Sunday: 10am - 11pm</p>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold mb-4">Location</h3>
-              <p>123 Ethiopian Way</p>
-              <p>Addis Ababa, ET 12345</p>
-              <p>Phone: (123) 456-7890</p>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold mb-4">Follow Us</h3>
-              <div className="flex space-x-4">
-                <a href="#" className="hover:text-amber-300">
-                  Instagram
-                </a>
-                <a href="#" className="hover:text-amber-300">
-                  Facebook
-                </a>
-                <a href="#" className="hover:text-amber-300">
-                  Twitter
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="mt-8 text-center">
-            <p>© {new Date().getFullYear()} Bole Ethiopian Restaurant. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      </main>
+      <Footer />
     </div>
   )
 }

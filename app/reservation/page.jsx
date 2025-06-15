@@ -2,7 +2,10 @@
 
 import { useState } from "react"
 import Navbar from "@/components/navbar"
+import Footer from "@/components/footer"
 import { Calendar, Users, Phone, Mail, MessageSquare } from "lucide-react"
+// import { Footer } from "react-day-picker"
+
 
 export default function ReservationPage() {
   const [formData, setFormData] = useState({
@@ -190,9 +193,8 @@ export default function ReservationPage() {
                       onChange={handleChange}
                       onFocus={() => handleFocus("firstName")}
                       onBlur={handleBlur}
-                      className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${
-                        focusedField === "firstName" ? "transform scale-105 shadow-lg" : ""
-                      }`}
+                      className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${focusedField === "firstName" ? "transform scale-105 shadow-lg" : ""
+                        }`}
                       required
                     />
                   </div>
@@ -208,9 +210,8 @@ export default function ReservationPage() {
                       onChange={handleChange}
                       onFocus={() => handleFocus("lastName")}
                       onBlur={handleBlur}
-                      className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${
-                        focusedField === "lastName" ? "transform scale-105 shadow-lg" : ""
-                      }`}
+                      className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${focusedField === "lastName" ? "transform scale-105 shadow-lg" : ""
+                        }`}
                       required
                     />
                   </div>
@@ -229,9 +230,8 @@ export default function ReservationPage() {
                       onChange={handleChange}
                       onFocus={() => handleFocus("email")}
                       onBlur={handleBlur}
-                      className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${
-                        focusedField === "email" ? "transform scale-105 shadow-lg" : ""
-                      }`}
+                      className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${focusedField === "email" ? "transform scale-105 shadow-lg" : ""
+                        }`}
                       required
                     />
                   </div>
@@ -247,9 +247,8 @@ export default function ReservationPage() {
                       onChange={handleChange}
                       onFocus={() => handleFocus("phone")}
                       onBlur={handleBlur}
-                      className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${
-                        focusedField === "phone" ? "transform scale-105 shadow-lg" : ""
-                      }`}
+                      className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${focusedField === "phone" ? "transform scale-105 shadow-lg" : ""
+                        }`}
                       required
                     />
                   </div>
@@ -270,9 +269,8 @@ export default function ReservationPage() {
                       onFocus={() => handleFocus("date")}
                       onBlur={handleBlur}
                       min={today}
-                      className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${
-                        focusedField === "date" ? "transform scale-105 shadow-lg" : ""
-                      }`}
+                      className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${focusedField === "date" ? "transform scale-105 shadow-lg" : ""
+                        }`}
                       required
                     />
                   </div>
@@ -287,9 +285,8 @@ export default function ReservationPage() {
                       onChange={handleChange}
                       onFocus={() => handleFocus("time")}
                       onBlur={handleBlur}
-                      className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${
-                        focusedField === "time" ? "transform scale-105 shadow-lg" : ""
-                      }`}
+                      className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${focusedField === "time" ? "transform scale-105 shadow-lg" : ""
+                        }`}
                       required
                     >
                       <option value="">Select time</option>
@@ -311,9 +308,8 @@ export default function ReservationPage() {
                       onChange={handleChange}
                       onFocus={() => handleFocus("partySize")}
                       onBlur={handleBlur}
-                      className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${
-                        focusedField === "partySize" ? "transform scale-105 shadow-lg" : ""
-                      }`}
+                      className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${focusedField === "partySize" ? "transform scale-105 shadow-lg" : ""
+                        }`}
                       required
                     >
                       {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((size) => (
@@ -336,9 +332,8 @@ export default function ReservationPage() {
                     onChange={handleChange}
                     onFocus={() => handleFocus("occasion")}
                     onBlur={handleBlur}
-                    className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${
-                      focusedField === "occasion" ? "transform scale-105 shadow-lg" : ""
-                    }`}
+                    className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${focusedField === "occasion" ? "transform scale-105 shadow-lg" : ""
+                      }`}
                   >
                     <option value="">Select occasion</option>
                     {occasions.map((occasion) => (
@@ -362,17 +357,15 @@ export default function ReservationPage() {
                     onBlur={handleBlur}
                     rows={4}
                     placeholder="Dietary restrictions, accessibility needs, seating preferences, etc."
-                    className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${
-                      focusedField === "specialRequests" ? "transform scale-105 shadow-lg" : ""
-                    }`}
+                    className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${focusedField === "specialRequests" ? "transform scale-105 shadow-lg" : ""
+                      }`}
                   ></textarea>
                 </div>
 
                 {formStatus.message && (
                   <div
-                    className={`p-4 rounded-md transition-all duration-500 transform animate-bounce-in ${
-                      formStatus.type === "success" ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
-                    }`}
+                    className={`p-4 rounded-md transition-all duration-500 transform animate-bounce-in ${formStatus.type === "success" ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
+                      }`}
                   >
                     {formStatus.message}
                   </div>
@@ -381,9 +374,8 @@ export default function ReservationPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full bg-amber-800 hover:bg-amber-900 disabled:bg-amber-400 text-white px-8 py-3 rounded-md font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 animate-fade-in-up animate-stagger-4 ${
-                    isSubmitting ? "animate-pulse" : "hover:shadow-lg"
-                  }`}
+                  className={`w-full bg-amber-800 hover:bg-amber-900 disabled:bg-amber-400 text-white px-8 py-3 rounded-md font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 animate-fade-in-up animate-stagger-4 ${isSubmitting ? "animate-pulse" : "hover:shadow-lg"
+                    }`}
                 >
                   {isSubmitting ? (
                     <span className="flex items-center justify-center">
@@ -477,40 +469,7 @@ export default function ReservationPage() {
         </div>
       </div>
 
-      <footer className="bg-amber-800 text-white py-12 animate-fade-in">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="animate-slide-in-left">
-              <h3 className="text-xl font-bold mb-4">Hours</h3>
-              <p>Monday - Friday: 11am - 10pm</p>
-              <p>Saturday - Sunday: 10am - 11pm</p>
-            </div>
-            <div className="animate-fade-in-up animate-stagger-2">
-              <h3 className="text-xl font-bold mb-4">Location</h3>
-              <p>123 Ethiopian Way</p>
-              <p>Addis Ababa, ET 12345</p>
-              <p>Phone: (123) 456-7890</p>
-            </div>
-            <div className="animate-slide-in-right">
-              <h3 className="text-xl font-bold mb-4">Follow Us</h3>
-              <div className="flex space-x-4">
-                <a href="#" className="hover:text-amber-300 transition-all duration-300 hover:scale-110">
-                  Instagram
-                </a>
-                <a href="#" className="hover:text-amber-300 transition-all duration-300 hover:scale-110">
-                  Facebook
-                </a>
-                <a href="#" className="hover:text-amber-300 transition-all duration-300 hover:scale-110">
-                  Twitter
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="mt-8 text-center animate-fade-in-up animate-stagger-4">
-            <p>© {new Date().getFullYear()} Bole Ethiopian Restaurant. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

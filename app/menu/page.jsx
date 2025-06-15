@@ -1,6 +1,8 @@
 import { menuData } from "@/lib/menu-data"
 import Navbar from "@/components/navbar"
+import Footer from "@/components/footer"
 import MenuSection from "@/components/menu-section"
+// import { Footer } from "react-day-picker"
 
 export default function MenuPage() {
   return (
@@ -54,40 +56,7 @@ export default function MenuPage() {
         </div>
       </div>
 
-      <footer className="bg-amber-800 text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4">Hours</h3>
-              <p>Monday - Friday: 11am - 10pm</p>
-              <p>Saturday - Sunday: 10am - 11pm</p>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold mb-4">Location</h3>
-              <p>123 Ethiopian Way</p>
-              <p>Addis Ababa, ET 12345</p>
-              <p>Phone: (123) 456-7890</p>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold mb-4">Follow Us</h3>
-              <div className="flex space-x-4">
-                <a href="#" className="hover:text-amber-300">
-                  Instagram
-                </a>
-                <a href="#" className="hover:text-amber-300">
-                  Facebook
-                </a>
-                <a href="#" className="hover:text-amber-300">
-                  Twitter
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="mt-8 text-center">
-            <p>© {new Date().getFullYear()} Bole Ethiopian Restaurant. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }
