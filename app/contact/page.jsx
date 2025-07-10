@@ -274,8 +274,8 @@ export default function ContactPage() {
                 <div>
                   <h3 className="font-bold text-lg mb-1">Address</h3>
                   <address className="not-italic">
-                    2200 S Jackson St.<br />
-                    Seattle
+                    2200 S Jackson St, 
+                    Seattle, WA 98144, USA
                   </address>
                 </div>
               </div>
