@@ -8,7 +8,7 @@ export default function SearchForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Handle search functionality here
+    // Handle search functionality heres
     console.log("Searching for:", query)
   }
 

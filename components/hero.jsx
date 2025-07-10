@@ -2,9 +2,9 @@ import Image from "next/image"
 
 export default function Hero() {
   return (
-    <div className="relative h-[500px] w-full overflow-hidden">
+    <div className="relative h-[500px] w-full contain overflow-hidden">
       <Image
-        src="/images/doro-wat.jpg"
+        src="/images/back.jpg"
         alt="Ethiopian cuisine with injera and various dishes"
         fill
         className="object-cover transition-transform duration-700 hover:scale-105"

@@ -4,8 +4,72 @@ import { useState } from "react"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { MapPin, Phone, Mail, Clock } from "lucide-react"
+import { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 export default function ContactPage() {
+  const formRef = useRef();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Simple validation
+    if (!formData.name || !formData.email || !formData.message) {
+      setFormStatus({
+        message: "Please fill out all required fields.",
+        type: "error",
+      });
+
+      // Auto-hide message after 3 seconds
+      setTimeout(() => {
+        setFormStatus({ message: "", type: null });
+      }, 3000);
+
+      return;
+    }
+
+    emailjs.sendForm(
+      'service_wzamzdc',
+      'template_s4175sd',
+      formRef.current,
+      'IJOxcH6Dq2lfktn2_'
+    )
+      .then(
+        (result) => {
+          console.log(result.text);
+          setFormStatus({
+            message: "Thank you for your message! We'll get back to you soon.",
+            type: "success",
+          });
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            subject: "",
+            message: "",
+          });
+
+          // Auto-hide message after 3 seconds
+          setTimeout(() => {
+            setFormStatus({ message: "", type: null });
+          }, 3000);
+        },
+        (error) => {
+          console.error(error.text);
+          setFormStatus({
+            message: "Failed to send your message. Please try again later.",
+            type: "error",
+          });
+
+          // Auto-hide message after 3 seconds
+          setTimeout(() => {
+            setFormStatus({ message: "", type: null });
+          }, 3000);
+        }
+      );
+  };
+
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -27,7 +91,7 @@ export default function ContactPage() {
     }))
   }
 
-  const handleSubmit = (e) => {
+  const sendEmail = (e) => {
     e.preventDefault()
 
     // Simple validation
@@ -38,6 +102,37 @@ export default function ContactPage() {
       })
       return
     }
+    emailjs.sendForm(
+      'service_wzamzdc',     // e.g., service_123abc
+      'template_s4175sd',    // e.g., template_456def
+      formRef.current,
+      'IJOxcH6Dq2lfktn2_'      // e.g., ZYxAbcD12345
+    )
+      .then(
+        (result) => {
+          console.log(result.text);
+          setFormStatus({
+            message: "Thank you for your message! We'll get back to you soon.",
+            type: "success",
+          })
+          // Reset form
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            subject: "",
+            message: "",
+          })
+        },
+        (error) => {
+          console.error(error.text);
+          setFormStatus({
+            message: "Failed to send your message. Please try again later.",
+            type: "error",
+          })
+        }
+      )
+
 
     // Simulate form submission
     setTimeout(() => {
@@ -46,14 +141,6 @@ export default function ContactPage() {
         type: "success",
       })
 
-      // Reset form
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: "",
-      })
     }, 1000)
   }
 
@@ -74,7 +161,7 @@ export default function ContactPage() {
           {/* Contact Form */}
           <section>
             <h2 className="text-3xl font-bold mb-8 text-amber-800">Get in Touch</h2>
-            <form onSubmit={handleSubmit} className="space-y-6 bg-white p-8 rounded-lg shadow-md">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6 bg-white p-8 rounded-lg shadow-md">
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block mb-2 font-medium">
@@ -136,7 +223,7 @@ export default function ContactPage() {
                   >
                     <option value="">Select a subject</option>
                     <option value="reservation">Reservation</option>
-                    <option value="catering">Catering</option>
+                    {/* <option value="catering">Catering</option> */}
                     <option value="feedback">Feedback</option>
                     <option value="other">Other</option>
                   </select>
@@ -180,7 +267,7 @@ export default function ContactPage() {
 
           {/* Contact Information */}
           <aside>
-            <h2 className="text-3xl font-bold mb-8 text-amber-800">Information</h2>
+            <h2 className="text-3xl font-bold mb-8 text-amber-800">WHERE WE ARE</h2>
             <div className="bg-amber-50 p-6 rounded-lg mb-8 shadow-sm space-y-6">
               <div className="flex items-start gap-4">
                 <MapPin className="text-amber-800 mt-1 flex-shrink-0" size={28} />

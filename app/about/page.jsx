@@ -13,7 +13,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-16">
+      <div className="md:mx-12 lg:mx-24 xl:mx-40  mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           <div>
             <h2 className="text-3xl font-bold mb-6 text-amber-800">Our Journey</h2>

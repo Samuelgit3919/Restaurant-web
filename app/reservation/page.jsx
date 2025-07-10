@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
-import { Calendar, Users, Phone, Mail, MessageSquare } from "lucide-react"
+import { Calendar, Users, Phone, Mail, MessageSquare, TriangleAlert } from "lucide-react"
 // import { Footer } from "react-day-picker"
 
 
@@ -160,17 +160,20 @@ export default function ReservationPage() {
   const today = new Date().toISOString().split("T")[0]
 
   return (
-    <div className="min-h-screen bg-white ">
+    <div className="min-h-screen bg-white">
       <Navbar />
       <div className="bg-amber-800 text-white py-16 animate-fade-in">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in-up">Make a Reservation</h1>
           <p className="text-xl max-w-2xl mx-auto animate-fade-in-up animate-stagger-2">
-            Reserve your table for an authentic Ethiopian dining experience
+            Reserve your table for an authentic Ethiopian dining experience.
           </p>
         </div>
       </div>
-
+      <div className="flex items-center justify-center bg-red-50 border border-red-200 rounded-lg p-8 mt-8 mx-4 animate-fade-in animate-stagger-3">
+        <TriangleAlert className="text-amber-800 mr-4 mt-1 flex-shrink-0 animate-float" />
+        <p className="text-center mt-4 text-red-400">Reservations are currently unavailable.</p>
+      </div>
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12">
@@ -193,8 +196,7 @@ export default function ReservationPage() {
                       onChange={handleChange}
                       onFocus={() => handleFocus("firstName")}
                       onBlur={handleBlur}
-                      className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${focusedField === "firstName" ? "transform scale-105 shadow-lg" : ""
-                        }`}
+                      className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${focusedField === "firstName" ? "transform scale-105 shadow-lg" : ""}`}
                       required
                     />
                   </div>
@@ -210,8 +212,7 @@ export default function ReservationPage() {
                       onChange={handleChange}
                       onFocus={() => handleFocus("lastName")}
                       onBlur={handleBlur}
-                      className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${focusedField === "lastName" ? "transform scale-105 shadow-lg" : ""
-                        }`}
+                      className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${focusedField === "lastName" ? "transform scale-105 shadow-lg" : ""}`}
                       required
                     />
                   </div>
@@ -230,8 +231,7 @@ export default function ReservationPage() {
                       onChange={handleChange}
                       onFocus={() => handleFocus("email")}
                       onBlur={handleBlur}
-                      className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${focusedField === "email" ? "transform scale-105 shadow-lg" : ""
-                        }`}
+                      className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${focusedField === "email" ? "transform scale-105 shadow-lg" : ""}`}
                       required
                     />
                   </div>
@@ -247,8 +247,7 @@ export default function ReservationPage() {
                       onChange={handleChange}
                       onFocus={() => handleFocus("phone")}
                       onBlur={handleBlur}
-                      className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${focusedField === "phone" ? "transform scale-105 shadow-lg" : ""
-                        }`}
+                      className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${focusedField === "phone" ? "transform scale-105 shadow-lg" : ""}`}
                       required
                     />
                   </div>
@@ -269,8 +268,7 @@ export default function ReservationPage() {
                       onFocus={() => handleFocus("date")}
                       onBlur={handleBlur}
                       min={today}
-                      className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${focusedField === "date" ? "transform scale-105 shadow-lg" : ""
-                        }`}
+                      className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${focusedField === "date" ? "transform scale-105 shadow-lg" : ""}`}
                       required
                     />
                   </div>
@@ -285,11 +283,10 @@ export default function ReservationPage() {
                       onChange={handleChange}
                       onFocus={() => handleFocus("time")}
                       onBlur={handleBlur}
-                      className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${focusedField === "time" ? "transform scale-105 shadow-lg" : ""
-                        }`}
+                      className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${focusedField === "time" ? "transform scale-105 shadow-lg" : ""}`}
                       required
                     >
-                      <option value="">Select time</option>
+                      <option value="">Select a time</option>
                       {timeSlots.map((time) => (
                         <option key={time} value={time}>
                           {time}
@@ -308,8 +305,7 @@ export default function ReservationPage() {
                       onChange={handleChange}
                       onFocus={() => handleFocus("partySize")}
                       onBlur={handleBlur}
-                      className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${focusedField === "partySize" ? "transform scale-105 shadow-lg" : ""
-                        }`}
+                      className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${focusedField === "partySize" ? "transform scale-105 shadow-lg" : ""}`}
                       required
                     >
                       {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((size) => (
@@ -332,10 +328,9 @@ export default function ReservationPage() {
                     onChange={handleChange}
                     onFocus={() => handleFocus("occasion")}
                     onBlur={handleBlur}
-                    className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${focusedField === "occasion" ? "transform scale-105 shadow-lg" : ""
-                      }`}
+                    className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${focusedField === "occasion" ? "transform scale-105 shadow-lg" : ""}`}
                   >
-                    <option value="">Select occasion</option>
+                    <option value="">Select an occasion</option>
                     {occasions.map((occasion) => (
                       <option key={occasion} value={occasion}>
                         {occasion}
@@ -357,15 +352,13 @@ export default function ReservationPage() {
                     onBlur={handleBlur}
                     rows={4}
                     placeholder="Dietary restrictions, accessibility needs, seating preferences, etc."
-                    className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${focusedField === "specialRequests" ? "transform scale-105 shadow-lg" : ""
-                      }`}
+                    className={`w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all duration-300 ${focusedField === "specialRequests" ? "transform scale-105 shadow-lg" : ""}`}
                   ></textarea>
                 </div>
 
                 {formStatus.message && (
                   <div
-                    className={`p-4 rounded-md transition-all duration-500 transform animate-bounce-in ${formStatus.type === "success" ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
-                      }`}
+                    className={`p-4 rounded-md transition-all duration-500 transform animate-bounce-in ${formStatus.type === "success" ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"}`}
                   >
                     {formStatus.message}
                   </div>
@@ -374,8 +367,7 @@ export default function ReservationPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full bg-amber-800 hover:bg-amber-900 disabled:bg-amber-400 text-white px-8 py-3 rounded-md font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 animate-fade-in-up animate-stagger-4 ${isSubmitting ? "animate-pulse" : "hover:shadow-lg"
-                    }`}
+                  className={`w-full bg-amber-800 hover:bg-amber-900 disabled:bg-amber-400 text-white px-8 py-3 rounded-md font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 animate-fade-in-up animate-stagger-4 ${isSubmitting ? "animate-pulse" : "hover:shadow-lg"}`}
                 >
                   {isSubmitting ? (
                     <span className="flex items-center justify-center">
@@ -409,7 +401,7 @@ export default function ReservationPage() {
                     <h3 className="font-bold text-lg mb-2">Phone</h3>
                     <p>(123) 456-7890</p>
                     <p className="text-sm text-gray-600 mt-1">
-                      Call us for same-day reservations or parties larger than 10
+                      Call us for same-day reservations or parties larger than 10.
                     </p>
                   </div>
                 </div>
@@ -440,11 +432,11 @@ export default function ReservationPage() {
                 </h3>
                 <ul className="space-y-2 text-sm text-gray-600">
                   {[
-                    "Reservations are held for 15 minutes past the reserved time",
-                    "Cancellations must be made at least 2 hours in advance",
-                    "Large parties may require a credit card to hold the reservation",
-                    "We accommodate dietary restrictions with advance notice",
-                    "Children are welcome - high chairs and booster seats available",
+                    "Reservations are held for 15 minutes past the reserved time.",
+                    "Cancellations must be made at least 2 hours in advance.",
+                    "Large parties may require a credit card to hold the reservation.",
+                    "We accommodate dietary restrictions with advance notice.",
+                    "Children are welcome – high chairs and booster seats are available.",
                   ].map((item, index) => (
                     <li key={index} className={`animate-fade-in-up animate-stagger-${index + 1}`}>
                       • {item}
